@@ -40,7 +40,7 @@ void playfair(char ch1, char ch2, char key[MX][MX]) {
         return;
     }
 
-    // Find the positions of ch1 and ch2 in the key matrix
+    
     for (i = 0; i < MX; i++) {
         for (j = 0; j < MX; j++) {
             if (ch1 == key[i][j]) {
@@ -54,7 +54,7 @@ void playfair(char ch1, char ch2, char key[MX][MX]) {
         }
     }
 
-    // Encrypt based on the position of the characters
+   
     if (w == y) { // Same row
         x = (x + 1) % 5;
         z = (z + 1) % 5;
@@ -82,11 +82,11 @@ int main() {
     
     printf("\nEnter key: ");
     fgets(keystr, sizeof(keystr), stdin);
-    keystr[strcspn(keystr, "\n")] = 0; // Remove newline character
+    keystr[strcspn(keystr, "\n")] = 0;
 
     printf("\nEnter the plain text: ");
     fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = 0; // Remove newline character
+    str[strcspn(str, "\n")] = 0; 
 
     n = strlen(keystr);
     for (i = 0; i < n; i++) {
@@ -101,7 +101,7 @@ int main() {
         str[i] = toupper(str[i]);
     }
 
-    // Remove letters already in the key from the alphabet
+   
     j = 0;
     for (i = 0; i < 26; i++) {
         for (k = 0; k < n; k++) {
@@ -114,7 +114,7 @@ int main() {
         }
     }
 
-    // Construct the 5x5 key matrix
+    
     k = 0;
     for (i = 0; i < MX; i++) {
         for (j = 0; j < MX; j++) {
@@ -132,16 +132,16 @@ int main() {
 
     printf("\n\nEntered text : %s\nCipher Text : ", str);
 
-    // Encrypt the plaintext using the Playfair cipher
+    
     for (i = 0; i < strlen(str); i++) {
         if (str[i] == 'J') str[i] = 'I';
-        if (str[i + 1] == '\0') playfair(str[i], 'X', key); // Add padding 'X' if odd length
+        if (str[i + 1] == '\0') playfair(str[i], 'X', key); 
         else {
             if (str[i + 1] == 'J') str[i + 1] = 'I';
-            if (str[i] == str[i + 1]) playfair(str[i], 'X', key); // If same letters, use 'X' as padding
+            if (str[i] == str[i + 1]) playfair(str[i], 'X', key); 
             else {
                 playfair(str[i], str[i + 1], key);
-                i++; // Skip the next letter after processing a pair
+                i++; 
             }
         }
     }
