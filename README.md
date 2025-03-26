@@ -150,12 +150,6 @@ int main() {
 ## OUTPUT:
 OUTPUT: Simulating Hill Cipher ![Screenshot 2025-03-26 083617](https://github.com/user-attachments/assets/84bf9151-7660-4d66-99a5-4a3b0fd8f102)
 
-
-## Input Message : josiah
-Padded Message : JOSIAH
-Encrypted Message : VSDWEP
-ecrypted Message : JOSIAH
-
 ## RESULT:
 The program is executed successfully
 
